@@ -5,7 +5,7 @@ const EntityHeaderStyles = styled.div`
 	margin-bottom: 32px;
 	background-color: ${props => props.theme.lightgrey};
 	.container {
-		max-width: 100%;
+		/* max-width: 100%; */
 		padding-left: 32px;
 		padding-right: 32px;
 	}

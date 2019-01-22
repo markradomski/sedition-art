@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Headline from './styles/Headline';
 import Avatar from './styles/Avatar';
 import FollowButton from './FollowButton';
 import EntityHeaderStyles from './styles/EntityHeaderStyles';
+import Tabs from './Tabs';
 
 const EntityHeader = () => (
 	<EntityHeaderStyles>
@@ -27,6 +28,14 @@ const EntityHeader = () => (
 					</div>
 				</div>
 			</div>
+			<Tabs>
+				<div label="profile">
+					See ya later, <em>Alligator</em>!
+				</div>
+				<div label="artworks">
+					After &apos;while, <em>Crocodile</em>!
+				</div>
+			</Tabs>
 		</div>
 	</EntityHeaderStyles>
 );
