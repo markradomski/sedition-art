@@ -9,37 +9,39 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
  */
 
 const theme = {
-	red: '#FF0000',
-	black: '#393939',
+	red: '#ff2850',
+	black: '#111116',
 	grey: '#3A3A3A',
-	lightgrey: '#E1E1E1',
+	lightgrey: '#f6f7f8',
 	offWhite: '#EDEDED',
-	maxWidth: '1000px',
+	maxWidth: '1200px',
 	bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
 };
 
 const StyledPage = styled.div`
 	background: #fff;
 	color: ${props => props.theme.black};
+	display: flex;
+	flex-direction: column;
 `;
 
 const Inner = styled.div`
 	max-width: ${props => props.theme.maxWidth};
 	margin: 0 auto;
-	padding: 2rem;
+	/* padding: 2rem; */
 `;
 
-createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 @font-face {
-	font-family: 'radnika_next' ;
-	src: url('/static/radnikanext-medium-webfont.woff2') 
-	format('woff2');
+  font-family: "Helvetica Neue", "Arial Nova Condensed", sans-serif;
+	/* src: url('/static/radnikanext-medium-webfont.woff2')  
+	format('woff2'); */
 	font-weight: normal;
 	font-style: normal;
 }
 html {
 	box-sizing: border-box;
-	font-size: 10px;
+	font-size: 18px;
 } 
 *, *:before, *:after {
 	 box-sizing: inherit
@@ -47,9 +49,8 @@ html {
 body {
 	padding: 0;
 	margin: 0;
-	font-size: 1.5rem;
-	line-height: 2;
-	font-family: 'radnika_next' ;
+	line-height: 1.6;
+	/* font-family: 'radnika_next' ; */
 }
 a {
 	text-decoration: none;
@@ -61,9 +62,12 @@ export default class extends Component {
 	render() {
 		return (
 			<ThemeProvider theme={theme}>
-				<StyledPage>
-					<Inner>{this.props.children}</Inner>
-				</StyledPage>
+				<React.Fragment>
+					<GlobalStyle />
+					<StyledPage>
+						<Inner>{this.props.children}</Inner>
+					</StyledPage>
+				</React.Fragment>
 			</ThemeProvider>
 		);
 	}
