@@ -6,6 +6,7 @@ const EntityHeaderStyles = styled.div`
 	background-color: ${props => props.theme.lightgrey};
 
 	.entity-header {
+		width: 100%;
 		max-width: 180px !important;
 	}
 	@media (max-width: 578px) {

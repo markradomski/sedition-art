@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 
 const Avatar = styled.a`
-	border: 10px solid #fff;
-	border-radius: 0;
+	position: relative;
+	background-color: #eeeef1;
+	display: block;
 	overflow: hidden;
-	display: block !important;
-	> img {
-		background-color: ${props => props.theme.grey}
+	padding-bottom: 100%;
+		> img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border: 10px solid #fff
 		border-radius: 2px;
-		max-width: 100%;
-		width: auto;
-		height: auto;
-		vertical-align: middle;
-		border: 0;
-	}
+		object-fit: cover;
+		}
 `;
 
 export default Avatar;

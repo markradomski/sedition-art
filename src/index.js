@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-	withRouter
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Page from './components/Page';
 import { Code, Home } from './pages';
 
@@ -15,8 +10,8 @@ class App extends Component {
 			<Router>
 				<Page>
 					<Switch>
-						<Route exact path="/" component={withRouter(Home)} />
-						<Route path="/code" component={withRouter(Code)} />
+						<Route exact path="/" component={Home} />
+						<Route path="/code" component={Code} />
 					</Switch>
 				</Page>
 			</Router>

@@ -17,6 +17,19 @@ const StyledPage = styled.div`
 	color: ${props => props.theme.black};
 	display: flex;
 	flex-direction: column;
+	@media only screen and (max-width: 1171px) {
+		.container {
+			max-width: 100%;
+			padding-left: 32px;
+			padding-right: 32px;
+		}
+	}
+
+	@media only screen and (max-width: 1240px) {
+		.container {
+			max-width: 1072px;
+		}
+	}
 `;
 
 const Inner = styled.div`
@@ -26,12 +39,13 @@ const Inner = styled.div`
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
-  font-family: "Helvetica Neue", "Arial Nova Condensed", sans-serif;
-	/* src: url('/static/radnikanext-medium-webfont.woff2')  
-	format('woff2'); */
+	font-family: 'Georgia',serif;
+	/* src: url('/static/sabon-normal-webfont.woff')   
+	format('woff'); */
 	font-weight: normal;
 	font-style: normal;
 }
+
 html {
 	box-sizing: border-box;
 	font-size: 18px;
@@ -43,19 +57,13 @@ body {
 	padding: 0;
 	margin: 0;
 	line-height: 1.6;
-	/* font-family: 'radnika_next' ; */
 }
 a {
 	text-decoration: none;
 	color: ${theme.black} // no access to ThemeProvider here
 }
-	@media only screen and (max-width: 1171px) {
-		.container {
-			max-width: 100%;
-			padding-left: 32px;
-			padding-right: 32px;
-		}
-	}
+
+
 `;
 
 export default class extends Component {
