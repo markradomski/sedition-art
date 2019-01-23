@@ -6,27 +6,36 @@ import Tab from './Tab';
 const TabsStyles = styled.div`
 	.tab-list {
 		display: flex;
-		> div {
-			margin-right: 16px;
+		justify-content: flex-start;
+
+		@media only screen and (max-width: 576px) {
+			justify-content: center;
 		}
+		> a {
+			margin-right: 16px;
+			text-decoration: none;
+		}
+	}
+	.tab-content {
+		background-color: #fff;
 	}
 `;
 
 class Tabs extends Component {
-	static propTypes = {
-		children: PropTypes.instanceOf(Array).isRequired
-	};
 	state = {
-		activeTab: this.props.children[0].props.label
+		activeTab:
+			this.props.active === '/'
+				? this.props.children[0].props.label
+				: this.props.active.replace('/', '')
 	};
 
-	onClickTabItem = tab => {
+	handleClickTabItem = tab => {
 		this.setState({ activeTab: tab });
 	};
 
 	render() {
 		const {
-			onClickTabItem,
+			handleClickTabItem,
 			props: { children },
 			state: { activeTab }
 		} = this;
@@ -42,14 +51,13 @@ class Tabs extends Component {
 								activeTab={activeTab}
 								key={label}
 								label={label}
-								onClick={onClickTabItem}
+								onClick={handleClickTabItem}
 							/>
 						);
 					})}
 				</div>
 				<div className="tab-content">
 					{children.map(child => {
-						console.log(child);
 						if (child.props.label !== activeTab) return undefined;
 						return child.props.children;
 					})}
@@ -58,5 +66,10 @@ class Tabs extends Component {
 		);
 	}
 }
+
+Tabs.propTypes = {
+	children: PropTypes.instanceOf(Array).isRequired,
+	active: PropTypes.string
+};
 
 export default Tabs;

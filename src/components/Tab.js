@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -18,20 +19,30 @@ const TabStyles = styled.div`
 		padding-left: 10px;
 		padding-right: 10px;
 		font-size: 13px;
+		font-weight: 500;
+	}
+
+	@media only screen and (max-width: 576px) {
+		padding-left: 0;
+		padding-right: 0;
+		background: none;
+		border-bottom: ${props =>
+			props.selected ? '3px solid' : '3px solid transparent'};
+
+		:hover {
+			background: none;
+			border-bottom: 3px solid;
+		}
 	}
 `;
 
 class Tab extends Component {
-	static propTypes = {
-		activeTab: PropTypes.string.isRequired,
-		label: PropTypes.string.isRequired,
-		onClick: PropTypes.func.isRequired
-	};
-
 	onClick = () => {
 		const { label, onClick } = this.props;
 		onClick(label);
 	};
+
+	getLinkName = label => `/${label === 'profile' ? '' : label}`;
 
 	render() {
 		const {
@@ -40,11 +51,19 @@ class Tab extends Component {
 		} = this;
 
 		return (
-			<TabStyles onClick={onClick} selected={activeTab === label}>
-				{label}
-			</TabStyles>
+			<Link to={this.getLinkName(label)}>
+				<TabStyles onClick={onClick} selected={activeTab === label}>
+					{label}
+				</TabStyles>
+			</Link>
 		);
 	}
 }
+
+Tab.propTypes = {
+	activeTab: PropTypes.string.isRequired,
+	label: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired
+};
 
 export default Tab;

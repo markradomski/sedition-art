@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-
-/**
- Notes:
-	- ThemeProvider uses react context -> passing props to it allows child components direct access (no more prop drillin)
-
-  
- */
+import EntityHeader from './EntityHeader';
 
 const theme = {
 	red: '#ff2850',
@@ -71,6 +65,7 @@ export default class extends Component {
 				<React.Fragment>
 					<GlobalStyle />
 					<StyledPage>
+						<EntityHeader />
 						<Inner>{this.props.children}</Inner>
 					</StyledPage>
 				</React.Fragment>

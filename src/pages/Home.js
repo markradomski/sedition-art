@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import EntityHeader from '../components/EntityHeader';
-
 export default class Home extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<EntityHeader />
 				<div className="container">
 					Michael Craig-Martin (b. 1941, Dublin, Ireland) is a contemporary
 					conceptual artist interested in questioning the nature of image making
