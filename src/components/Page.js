@@ -27,8 +27,7 @@ const StyledPage = styled.div`
 
 const Inner = styled.div`
 	/* max-width: ${props => props.theme.maxWidth}; */
-	margin: 0 auto;
-	/* padding: 2rem; */
+	/* margin: 0 auto; */
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -56,6 +55,13 @@ a {
 	text-decoration: none;
 	color: ${theme.black} // no access to ThemeProvider here
 }
+	@media only screen and (max-width: 1171px) {
+		.container {
+			max-width: 100%;
+			padding-left: 32px;
+			padding-right: 32px;
+		}
+	}
 `;
 
 export default class extends Component {

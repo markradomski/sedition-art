@@ -20,7 +20,7 @@ const EntityHeader = () => (
 				<div className="col">
 					<div className="row">
 						<div className="col">
-							<Headline size={'32px'}>Michael Craig-Martin</Headline>
+							<Headline size={'32px'}>Mark Radomski</Headline>
 						</div>
 						<div className="col-12 col-md-auto mt-1 mt-md-0">
 							<FollowButton />
@@ -32,6 +32,10 @@ const EntityHeader = () => (
 				<div label="profile">
 					See ya later, <em>Alligator</em>!
 				</div>
+				<div label="code">
+					After &apos;while, <em>Crocodile</em>!
+				</div>
+
 				<div label="artworks">
 					After &apos;while, <em>Crocodile</em>!
 				</div>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TabStyles = styled.div`
+	cursor: pointer;
 	transition: 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 	font-size: 14px;
 	line-height: 35px;

@@ -8,7 +8,7 @@ export default class Home extends Component {
 		return (
 			<React.Fragment>
 				<EntityHeader />
-				<p>
+				<div className="container">
 					Michael Craig-Martin (b. 1941, Dublin, Ireland) is a contemporary
 					conceptual artist interested in questioning the nature of image making
 					and considering how art might be comprehended by the viewer.
@@ -19,7 +19,7 @@ export default class Home extends Component {
 					his large-scale black and white wall drawings of everyday objects; and
 					his intensely coloured paintings, installations, and public
 					commissions.
-				</p>
+				</div>
 			</React.Fragment>
 		);
 	}
