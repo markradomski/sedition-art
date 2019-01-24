@@ -11,6 +11,7 @@ const EntityHeader = ({ match, location, history }) => {
 	const path = location.pathname;
 	return (
 		<EntityHeaderStyles>
+			{/* <div className="background" /> */}
 			<div className="container">
 				<div className="row align-items-center pt-2 pt-sm-4">
 					<div className="col-auto entity-header">

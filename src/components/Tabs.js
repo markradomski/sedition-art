@@ -11,10 +11,6 @@ const TabsStyles = styled.div`
 		@media only screen and (max-width: 576px) {
 			justify-content: center;
 		}
-		> a {
-			margin-right: 16px;
-			text-decoration: none;
-		}
 	}
 	.tab-content {
 		background-color: #fff;
