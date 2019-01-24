@@ -17,6 +17,14 @@ const StyledPage = styled.div`
 	color: ${props => props.theme.black};
 	display: flex;
 	flex-direction: column;
+	a:hover {
+		text-decoration: none !important;
+	}
+	@media only screen and (max-width: 1240px) {
+		.container {
+			max-width: 1072px;
+		}
+	}
 	@media only screen and (max-width: 1171px) {
 		.container {
 			max-width: 100%;
@@ -24,10 +32,11 @@ const StyledPage = styled.div`
 			padding-right: 32px;
 		}
 	}
-
-	@media only screen and (max-width: 1240px) {
+	@media only screen and (max-width: 576px) {
 		.container {
-			max-width: 1072px;
+			max-width: 100%;
+			padding-left: 16px;
+			padding-right: 16px;
 		}
 	}
 `;
@@ -54,15 +63,15 @@ html {
 	 box-sizing: inherit
 }
 body {
+	font-family: "Helvetica Neue", "Arial Nova Condensed", sans-serif;
+	line-height: 1.6;
 	padding: 0;
 	margin: 0;
-	line-height: 1.6;
 }
-a {
+a   {
 	text-decoration: none;
 	color: ${theme.black} // no access to ThemeProvider here
-}
-
+}	
 
 `;
 

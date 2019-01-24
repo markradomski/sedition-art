@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Tab from './Tab';
 
 const TabsStyles = styled.div`
+	position: relative;
 	.tab-list {
 		display: flex;
 		justify-content: flex-start;
