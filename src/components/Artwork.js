@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import ProgressiveImage from './ProgressiveImage';
 const imagePath = `${process.env.PUBLIC_URL}/assets/img/`;
 
-const ArtworkStyles = styled.div`
-	a:hover {
+const ArtworkStyles = styled.a`
+	:hover {
 		color: #555;
 	}
 `;
@@ -17,15 +16,14 @@ const ImageStyles = styled.div`
 	display: block;
 	overflow: hidden;
 	padding-bottom: 100%;
-`;
-
-const Image = styled.img`
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	object-fit: cover;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
 `;
 
 const ArtworkContent = styled.div`
@@ -56,19 +54,27 @@ const ArtworkContent = styled.div`
 `;
 
 const Artwork = ({ link, filename, title, header }) => (
-	<ArtworkStyles className="col-12 col-lg-3 col-md-4 col-sm-6 mb-4 mb-gutter">
-		<a href={link} target="_blank" rel="noopener">
-			<ImageStyles>
-				<Image src={imagePath + filename} />
-			</ImageStyles>
-			<ArtworkContent className="row">
-				<figcaption className="col">
-					<h1 className="header">{header}</h1>
-					<div className="title"> {title}</div>
-				</figcaption>
-			</ArtworkContent>
-		</a>
+	<ArtworkStyles href={link} target="_blank" rel="noopener noreferrer">
+		<ImageStyles>
+			<ProgressiveImage
+				image={'https://markradomski.github.io/images/' + filename}
+				preview={imagePath + 'thumbnail/bezor-site.jpg'}
+			/>
+		</ImageStyles>
+		<ArtworkContent className="row">
+			<figcaption className="col">
+				<h1 className="header">{header}</h1>
+				<div className="title"> {title}</div>
+			</figcaption>
+		</ArtworkContent>
 	</ArtworkStyles>
 );
+
+Artwork.propTypes = {
+	link: PropTypes.string.isRequired,
+	filename: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	header: PropTypes.string.isRequired
+};
 
 export default Artwork;
