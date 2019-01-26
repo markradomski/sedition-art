@@ -5,6 +5,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const logoPath = `${process.env.PUBLIC_URL}/assets/img/logo.svg`;
 const homePath = `${process.env.PUBLIC_URL}/`;
+const avatarPath = `${process.env.PUBLIC_URL}/assets/img/headshot-bw.png`;
 
 const NavigationStyles = styled.div`
 	position: relative;
@@ -239,7 +240,7 @@ class Navigation extends Component {
 						<img
 							alt="Avatar"
 							class="avatar"
-							src="https://www.seditionart.com/assets/default/avatar/missing_artist_profile.png"
+							src={avatarPath}
 							width="36"
 							height="36"
 						/>
@@ -289,7 +290,7 @@ class Navigation extends Component {
 								<img
 									alt="Mark Radomski profile"
 									className="avatar"
-									src="https://www.seditionart.com/assets/default/avatar/missing_medium.png"
+									src={avatarPath}
 									width="40"
 									height="40"
 								/>
