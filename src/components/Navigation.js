@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const logoPath = `${process.env.PUBLIC_URL}/assets/img/logo.svg`;
+const homePath = `${process.env.PUBLIC_URL}/`;
 
 const NavigationStyles = styled.div`
 	position: relative;
@@ -27,9 +28,9 @@ const NavigationStyles = styled.div`
 		}
 	}
 
-	.dropdown-menu--dark {
+	.dropdownMenu {
 		position: absolute;
-		left: 0;
+
 		top: 100%;
 		display: none;
 		font-size: 14px;
@@ -61,6 +62,7 @@ const NavigationStyles = styled.div`
 			}
 		}
 	}
+
 	.navigation-menu__link {
 		display: block;
 		padding: 20px 15px;
@@ -81,6 +83,10 @@ const NavigationStyles = styled.div`
 			}
 		}
 	}
+	.avatar {
+		overflow: hidden;
+		border-radius: 2px;
+	}
 `;
 
 const NavigationMenuItems = styled.ul`
@@ -100,13 +106,72 @@ const NavigationMenuItems = styled.ul`
 		top: 100%;
 		background: #111116;
 	}
+	.menu-dropdown.main {
+		.dropdownMenu {
+			left: 0;
+		}
+	}
+	.menu-dropdown.account {
+		display: none;
+		.dropdownMenu {
+			right: 0;
+		}
+	}
+
 	@media only screen and (min-width: 1172px) {
-		.menu-dropdown:hover > .dropdown-menu--dark {
+		.menu-dropdown:hover > .dropdownMenu {
 			display: block;
+		}
+		.menu-dropdown.account {
+			display: list-item;
 		}
 	}
 `;
+
+const NavigationAccountItems = styled.ul`
+	display: none;
+	align-items: center;
+	position: relative;
+	margin: 0;
+	list-style: none;
+	font-weight: 500;
+	@media only screen and (max-width: 1171px) {
+		display: ${props => (props.open ? 'flex' : 'none')};
+		flex-direction: column;
+		align-items: stretch;
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 100%;
+		background: #111116;
+		.navigation-menu__link {
+			text-align: end;
+		}
+	}
+`;
+
 const MenuToggle = styled.button`
+	display: none;
+	align-items: center;
+	border-color: #0000;
+	background: none;
+	outline: 0;
+	border: 0;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	color: #fff;
+	cursor: pointer;
+	.label {
+		font-size: 14px;
+		margin-left: 5px;
+	}
+	@media only screen and (max-width: 1171px) {
+		display: flex;
+	}
+`;
+
+const AccountToggle = styled.button`
 	display: none;
 	align-items: center;
 	border-color: #0000;
@@ -149,12 +214,19 @@ class Navigation extends Component {
 
 	handleMenuToggle = () => {
 		this.setState(prevState => ({
-			mainMenuOpen: !prevState.mainMenuOpen
+			mainMenuOpen: !prevState.mainMenuOpen,
+			accountMenuOpen: false
+		}));
+	};
+	handleAccountToggle = () => {
+		this.setState(prevState => ({
+			accountMenuOpen: !prevState.accountMenuOpen,
+			mainMenuOpen: false
 		}));
 	};
 
 	render() {
-		const { mainMenuOpen } = this.state;
+		const { mainMenuOpen, accountMenuOpen } = this.state;
 		return (
 			<NavigationStyles>
 				<div className="container">
@@ -162,48 +234,112 @@ class Navigation extends Component {
 						<FontAwesomeIcon icon={faBars} />
 						<div className="label">Menu</div>
 					</MenuToggle>
-					<Logo href="/" />
+					<Logo href={homePath} />
+					<AccountToggle onClick={this.handleAccountToggle}>
+						<img
+							alt="Avatar"
+							class="avatar"
+							src="https://www.seditionart.com/assets/default/avatar/missing_artist_profile.png"
+							width="36"
+							height="36"
+						/>
+					</AccountToggle>
 					<NavigationMenuItems open={mainMenuOpen}>
-						<li className="menu-dropdown">
-							<a href="/" className="navigation-menu__link">
+						<li className="menu-dropdown main">
+							<a href={homePath} className="navigation-menu__link">
 								Browse
 							</a>
-							<ul className="dropdown-menu--dark">
+							<ul className="dropdownMenu">
 								<li>
-									<a href="/">Artworks</a>
+									<a href={homePath}>Artworks</a>
 								</li>
 								<li>
-									<a href="/">Artists</a>
+									<a href={homePath}>Artists</a>
 								</li>
 								<li>
-									<a href="/">Collections</a>
+									<a href={homePath}>Collections</a>
 								</li>
 								<li>
-									<a href="/">Open collections</a>
+									<a href={homePath}>Open collections</a>
 								</li>
 							</ul>
 						</li>
 						<li>
-							<a href="/" className="navigation-menu__link ">
+							<a href={homePath} className="navigation-menu__link ">
 								Vault
 							</a>
 						</li>
 						<li>
-							<a href="/" className="navigation-menu__link ">
+							<a href={homePath} className="navigation-menu__link ">
 								Art Stream
 							</a>
 						</li>
 						<li>
-							<a href="/" className="navigation-menu__link ">
+							<a href={homePath} className="navigation-menu__link ">
 								Trade
 							</a>
 						</li>
 						<li>
-							<a href="/" className="navigation-menu__link ">
+							<a href={homePath} className="navigation-menu__link ">
 								magazine
 							</a>
 						</li>
+						<li className="menu-dropdown account">
+							<a href={homePath} className="navigation-menu__link ">
+								<img
+									alt="Mark Radomski profile"
+									className="avatar"
+									src="https://www.seditionart.com/assets/default/avatar/missing_medium.png"
+									width="40"
+									height="40"
+								/>
+							</a>
+							<ul className="dropdownMenu">
+								<li>
+									<a href={homePath}>Profile</a>
+								</li>
+								<li>
+									<a href={homePath}>Account</a>
+								</li>
+								<li>
+									<a href={homePath}>How It works</a>
+								</li>
+								<li>
+									<a href={homePath}>Earn credit</a>
+								</li>
+								<li>
+									<a href={homePath}>Logout</a>
+								</li>
+							</ul>
+						</li>
 					</NavigationMenuItems>
+					<NavigationAccountItems open={accountMenuOpen}>
+						<li>
+							<a href={homePath} className="navigation-menu__link ">
+								Profile
+							</a>
+						</li>
+						<li>
+							<a href={homePath} className="navigation-menu__link ">
+								Account
+							</a>
+						</li>
+						<li>
+							<a href={homePath} className="navigation-menu__link ">
+								How It works
+							</a>
+						</li>
+						<li>
+							<a href={homePath} className="navigation-menu__link ">
+								Earn credit
+							</a>
+						</li>
+						<li>
+							<a href={homePath} className="navigation-menu__link ">
+								Logout
+							</a>
+						</li>
+					</NavigationAccountItems>
 				</div>
 			</NavigationStyles>
 		);
