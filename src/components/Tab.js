@@ -59,7 +59,9 @@ class Tab extends Component {
 
 		return (
 			<TabStyles onClick={onClick} selected={activeTab === label}>
-				<Link to={this.getLinkName(label)}>{label}</Link>
+				<Link to={process.env.PUBLIC_URL + this.getLinkName(label)}>
+					{label}
+				</Link>
 			</TabStyles>
 		);
 	}

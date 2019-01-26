@@ -18,11 +18,7 @@ const EntityHeader = ({ match, location, history }) => {
 				<div className="row align-items-center pt-2 pt-sm-4">
 					<div className="col-auto entity-header">
 						<Avatar>
-							<img
-								alt="Mark Radomski"
-								src={avatarPath}
-								// src="https://deaenij3kiw8r.cloudfront.net/system/users/avatars/140082/large_crop/production-6f27747e71c2df2e83964e0e383625f7-open-uri20130403-24890-kmo858?1486723591"
-							/>
+							<img alt="Mark Radomski" src={avatarPath} />
 						</Avatar>
 					</div>
 					<div className="col">
@@ -39,7 +35,6 @@ const EntityHeader = ({ match, location, history }) => {
 				<Tabs active={path}>
 					<div label="profile" />
 					<div label="code" />
-					<div label="artworks" />
 				</Tabs>
 			</div>
 		</EntityHeaderStyles>

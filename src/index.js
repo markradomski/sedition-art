@@ -10,8 +10,8 @@ class App extends Component {
 			<Router>
 				<Page>
 					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route path="/code" component={Code} />
+						<Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+						<Route path={process.env.PUBLIC_URL + '/code'} component={Code} />
 					</Switch>
 				</Page>
 			</Router>

@@ -57,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
 
 html {
 	box-sizing: border-box;
-	font-size: 18px;
+	font-size: 17px;
 	overflow-y: scroll;
 } 
 *, *:before, *:after {
@@ -65,7 +65,7 @@ html {
 }
 body {
 	font-family: "Helvetica Neue", "Arial Nova Condensed", sans-serif;
-	line-height: 1.6;
+	line-height: 1.7;
 	padding: 0;
 	margin: 0;
 }

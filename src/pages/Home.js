@@ -7,16 +7,23 @@ export default class Home extends Component {
 			<TextContentStyles>
 				<div className="container">
 					<p>
-						Michael Craig-Martin (b. 1941, Dublin, Ireland) is a contemporary
-						conceptual artist interested in questioning the nature of image
-						making and considering how art might be comprehended by the viewer.
-						Throughout his career, creating works in a number of different
-						media, he has explored the expressive potential of commonplace
-						objects and images. His best-known artworks include An oak tree
-						(1973), a seminal piece that claimed to have changed a glass of
-						water into an oak tree; his large-scale black and white wall
-						drawings of everyday objects; and his intensely coloured paintings,
-						installations, and public commissions.
+						Mark Radomski (b. Adelaide, South Australia) is an front-end
+						developer and designer based in South East Asia working remotely for
+						clients in Australia. He has over 8 years experience working with
+						SaaS companies, digital agencies, startups and contemporary visual
+						artists.
+					</p>
+					<p>
+						He has extensive Javascript knowledge spanning React, Angular,
+						Backbone, Node.js, TypeScript ... and god forbid, jQuery UI. And as
+						such is well versed in transitioning legacy web technology to
+						current web standards and frameworks, while keeping an eye on future
+						trends.
+					</p>
+					<p />
+					<p>
+						If you wish to see how Radomski would transition your site from
+						Backbone to React you can view the repo.
 					</p>
 				</div>
 			</TextContentStyles>

@@ -32,7 +32,6 @@ const ArtworkContent = styled.div`
 	line-height: 1;
 
 	.title {
-		font-size: 18px;
 		font-family: 'Georgia', serif;
 		font-style: italic;
 		@media only screen and (max-width: 768px) {
@@ -57,8 +56,8 @@ const Artwork = ({ link, filename, title, header }) => (
 	<ArtworkStyles href={link} target="_blank" rel="noopener noreferrer">
 		<ImageStyles>
 			<ProgressiveImage
-				image={'https://markradomski.github.io/images/' + filename}
-				preview={imagePath + 'thumbnail/bezor-site.jpg'}
+				image={imagePath + filename}
+				preview={imagePath + 'thumbnail/' + filename}
 			/>
 		</ImageStyles>
 		<ArtworkContent className="row">
