@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import EntityHeader from './EntityHeader';
+import Navigation from './Navigation';
 
 const theme = {
 	red: '#ff2850',
@@ -54,14 +55,16 @@ const GlobalStyle = createGlobalStyle`
 	font-weight: normal;
 	font-style: normal;
 }
-
 html {
 	box-sizing: border-box;
 	font-size: 17px;
 	overflow-y: scroll;
 } 
 *, *:before, *:after {
-	 box-sizing: inherit
+	 box-sizing: inherit;
+}
+*:focus {
+    outline: none;
 }
 body {
 	font-family: "Helvetica Neue", "Arial Nova Condensed", sans-serif;
@@ -69,11 +72,21 @@ body {
 	padding: 0;
 	margin: 0;
 }
-a   {
-	text-decoration: none;
-	color: ${theme.black} // no access to ThemeProvider here
+ul, ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }	
-
+li {
+  line-height: 22px;
+}
+button:focus {	
+    outline: none;
+}
+a {
+	text-decoration: none;
+	color: ${theme.black}; 
+}	
 `;
 
 export default class extends Component {
@@ -83,6 +96,7 @@ export default class extends Component {
 				<React.Fragment>
 					<GlobalStyle />
 					<StyledPage>
+						<Navigation />
 						<EntityHeader />
 						<Inner>{this.props.children}</Inner>
 					</StyledPage>
