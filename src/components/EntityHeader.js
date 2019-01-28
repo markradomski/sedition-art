@@ -15,7 +15,7 @@ const EntityHeader = ({ match, location, history }) => {
 		<EntityHeaderStyles>
 			{/* <div className="background" /> */}
 			<div className="container">
-				<div className="row align-items-center pt-2 pt-sm-4">
+				<div className="row entity-header-container">
 					<div className="col-auto entity-header">
 						<Avatar>
 							<img alt="Mark Radomski" src={avatarPath} />
@@ -26,7 +26,7 @@ const EntityHeader = ({ match, location, history }) => {
 							<div className="col">
 								<Headline size={'32px'}>Mark Radomski</Headline>
 							</div>
-							<div className="col-12 col-md-auto mt-1 mt-md-0">
+							<div className="follow-button">
 								<FollowButton />
 							</div>
 						</div>

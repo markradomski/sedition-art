@@ -2,4 +2,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-Sedition Art front end developer CV
+Sedition Art - Profile React components

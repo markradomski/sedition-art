@@ -5,6 +5,7 @@ import Tab from './Tab';
 
 const TabsStyles = styled.div`
 	position: relative;
+	margin-top: 32px;
 	.tab-list {
 		display: flex;
 		justify-content: flex-start;
@@ -38,7 +39,7 @@ class Tabs extends Component {
 		} = this;
 
 		return (
-			<TabsStyles className="mt-4">
+			<TabsStyles>
 				<div className="tab-list">
 					{children.map(child => {
 						const { label } = child.props;

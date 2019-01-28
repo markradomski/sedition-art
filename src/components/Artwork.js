@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import ProgressiveImage from './ProgressiveImage';
 const imagePath = `${process.env.PUBLIC_URL}/assets/img/`;
 
-const ArtworkStyles = styled.a`
+const ArtworkStyles = styled.a.attrs(({ link }) => ({
+	href: link,
+	target: '_blank',
+	rel: 'noopener noreferrer'
+}))`
 	:hover {
 		color: #555;
 	}
@@ -34,6 +38,7 @@ const ArtworkContent = styled.div`
 	.title {
 		font-family: 'Georgia', serif;
 		font-style: italic;
+		font-size: 14px;
 		@media only screen and (max-width: 768px) {
 			font-size: 16px;
 		}
@@ -53,7 +58,7 @@ const ArtworkContent = styled.div`
 `;
 
 const Artwork = ({ link, filename, title, header }) => (
-	<ArtworkStyles href={link} target="_blank" rel="noopener noreferrer">
+	<ArtworkStyles link={link}>
 		<ImageStyles>
 			<ProgressiveImage
 				image={imagePath + filename}

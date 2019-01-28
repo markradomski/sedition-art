@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const HeadLine = styled.h1`
+	margin: 0;
 	font-size: ${props => props.size};
 	line-height: 1;
 	text-transform: uppercase;
