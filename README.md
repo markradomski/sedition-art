@@ -1,1 +1,1 @@
-Sedition Art - Profile React components
+Converted [Sedition Art](https://www.seditionart.com) Profile section from Backbone/Bootstrap to - [React](https://facebook.github.io/react/) and [Styled-Components](https://www.styled-components.com/)
